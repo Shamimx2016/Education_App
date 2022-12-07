@@ -157,7 +157,9 @@ class HomeScreen extends StatelessWidget {
                             child: catIcons[index],
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Text(
                           catNames[index],
                           style: TextStyle(
@@ -169,6 +171,29 @@ class HomeScreen extends StatelessWidget {
                       ],
                     );
                   },
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Course",
+                      style: TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      "See All",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF674AEF),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
                 ),
               ],
             ),
