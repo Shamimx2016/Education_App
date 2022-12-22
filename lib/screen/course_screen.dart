@@ -39,6 +39,7 @@ class _CourseScreenState extends State<CourseScreen> {
         child: ListView(
           children: [
             Container(
+              padding: EdgeInsets.all(5),
               width: MediaQuery.of(context).size.width,
               height: 200,
               decoration: BoxDecoration(
@@ -47,6 +48,41 @@ class _CourseScreenState extends State<CourseScreen> {
                 image: DecorationImage(
                   image: AssetImage("images/${widget.img}.png"),
                 ),
+              ),
+              child: Center(
+                child: Container(
+                  padding: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    Icons.play_arrow_rounded,
+                    color: Color(0xFF674AEF),
+                    size: 45,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "${widget.img} Complete Course",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Text(
+              "Created by Dear Programmer",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.black.withOpacity(0.7),
               ),
             ),
           ],
