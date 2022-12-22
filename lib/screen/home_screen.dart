@@ -1,3 +1,4 @@
+import 'package:education_app/screen/course_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -50,6 +51,13 @@ class HomeScreen extends StatelessWidget {
       size: 30,
     ),
   ];
+  List imgList = [
+    'Flutter',
+    'React Native',
+    'Python',
+    'C#',
+  ];
+
   HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -195,9 +203,89 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
+                GridView.builder(
+                  itemCount: imgList.length,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio:
+                        (MediaQuery.of(context).size.height - 50 - 25) /
+                            (4 * 240),
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                  ),
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  CourseScreen(imgList[index]),
+                            ));
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xFFF5F3FF),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Image.asset(
+                                "images/${imgList[index]}.png",
+                                width: 100,
+                                height: 100,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              imgList[index],
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black.withOpacity(0.6),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              "55 Videos",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black.withOpacity(0.5),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
           ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        showUnselectedLabels: true,
+        iconSize: 32,
+        selectedItemColor: Color(0xFF674AEf),
+        selectedFontSize: 18,
+        unselectedItemColor: Colors.grey,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.assessment), label: 'Course'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite), label: 'Wishlist'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
         ],
       ),
     );
