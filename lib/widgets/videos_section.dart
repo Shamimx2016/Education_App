@@ -6,6 +6,7 @@ class VideosSection extends StatelessWidget {
     'Installing Flutter on Windows',
     'Setup Emuleter on Windows',
     'Creating our Fast App',
+    'hi thare',
   ];
   @override
   Widget build(BuildContext context) {

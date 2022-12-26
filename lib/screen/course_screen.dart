@@ -112,7 +112,6 @@ class _CourseScreenState extends State<CourseScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Material(
-                    // if isVideosSection is true than other color  and else another color
                     color: isVideosSection
                         ? Color(0xFF674AFE)
                         : Color(0xFF674AFE).withOpacity(0.6),
